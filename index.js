@@ -221,11 +221,40 @@
 //_____________________________________________
 
 // fib
-// Write a recursive function called fib which accepts a number and returns the nth number in the Fibonacci sequence. Recall that the Fibonacci sequence is the sequence of whole numbers 1, 1, 2, 3, 5, 8, ... which starts with 1 and 1, and where every number thereafter is equal to the sum of the previous two numbers.
+// Write a recursive function called fib which accepts a number and returns the nth number in the Fibonacci sequence. Recall that the Fibonacci sequence is the sequence of whole numbers    1, 1, 2, 3, 5, 8, ... which starts with 1 and 1, and where every number thereafter is equal to the sum of the previous two numbers.
 
 function fib(n){
     if (n <= 2) return 1;
     return fib(n-1) + fib(n-2);
 }
-console.log(fib(5));    //5
-//stuck figuring out the 'why' of this solution
+// console.log(fib(5));    //5
+//------call stack------
+//fib(5) return fib(4) + fib(3)    //3+2= 5
+//fib(4) return fib(3) + fib(2)    //2+1= 3
+//fib(3) return fib(2) + fib(1)    //1+1= 2
+//------call stack------
+
+
+
+//iterative solution:
+//this function receives a nth position as a parameter
+// function fibTwo(n){
+//   //if the nth position is less than 3, return 1 (because the 1st and 2nd position are occupied by 1)
+//   if(n < 3) return 1;
+//   //set a previous pointer to 1
+//   let prev = 1;
+//   //set a current pointer to 1
+//   let current = 1;
+//   //loop through starting at 2nd position; as long as i is less than n; increment by 1
+//   for(let i=2; i<n; i++){
+//     //add prev + current and save to next variable
+//     const next = prev + current;
+//     //move previous to current position
+//     prev = current;
+//     //move current to next position
+//     current = next;
+//   }
+//   //return current's position (nth position) when loop finishes
+//   return current;
+// }
+// console.log(fibTwo(4))
